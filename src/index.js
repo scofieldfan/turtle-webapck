@@ -1,16 +1,31 @@
 
-import printMe from './print.js';
-import { cube } from './math.js';
+import * as math from './math.js'
+
 async function getComponent() {
 
 
-    const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
+    // const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
 
+
+    console.log(math);
+    const { cube: test } = await import('./math.js');
 
     var element = document.createElement('div');
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    var btn2 = document.createElement('button');
+    btn2.innerHTML = 'loadash';
+    btn2.onclick = e => import(/* webpackChunkName: "lodash"  */'lodash').then(module => {
+        console.log(_.join(['Hello', ' i am lodash'], ' '));
+    });
 
+    var btn = document.createElement('button');
+    btn.innerHTML = 'Click me and check the console!' + test(5);
+    btn.onclick = e => import(/* webpackChunkName: "print"  */'./print').then(module => {
+        const print = module.default;
+        print();
+    });
+    element.appendChild(btn2);
+    element.appendChild(btn);
     return element;
 
 }

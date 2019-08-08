@@ -17,3 +17,5 @@ app/
 www/static
 release/
 view/
+dist/
+lib/
