@@ -10,8 +10,9 @@
                         "ios >= 7"
                     ]
                 },
-                "useBuiltIns": "usage",
-                "debug": true,
+                "corejs": "2",
+                "useBuiltIns": "false",
+                "debug": false,
             }
         ],
     ],
