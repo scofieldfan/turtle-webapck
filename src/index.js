@@ -29,7 +29,7 @@ async function getComponent() {
     return element;
 
 }
-
+console.log("index........");
 getComponent().then(component => {
     document.body.appendChild(component);
 })
